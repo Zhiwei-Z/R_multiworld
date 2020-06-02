@@ -339,7 +339,8 @@ class SawyerPushEnv( SawyerXYZEnv):
 
     def log_diagnostics(self, paths = None, prefix = '', logger = None):
 
-        from rllab.misc import logger
+        # from rllab.misc import logger
+        from rlkit.core import logger
         if type(paths[0]) == dict:
             if type(paths[0]) == dict:
                 #For SAC
