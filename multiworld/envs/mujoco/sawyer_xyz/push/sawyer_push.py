@@ -338,27 +338,27 @@ class SawyerPushEnv( SawyerXYZEnv):
         return statistics
 
     def log_diagnostics(self, paths = None, prefix = '', logger = None):
-
+        print("pass")
         # from rllab.misc import logger
-        from rlkit.core import logger
-        if type(paths[0]) == dict:
-            if type(paths[0]) == dict:
-                #For SAC
-               
-                #if isinstance(paths[0]['env_infos'][0] , OrderedDict):
-                # for key in self.info_logKeys:
-                #     nested_list = [[i[key] for i in paths[j]['env_infos']] for j in range(len(paths))]
-                #     logger.record_tabular(prefix + 'last_'+key, np.mean([_list[-1] for _list in nested_list]) )
-
-                
-               
-                #For TRPO
-                for key in self.info_logKeys:
-                    logger.record_tabular(prefix + 'last_'+key, np.mean([path['env_infos'][key][-1] for path in paths]) )
-
-        else:
-            for i in range(len(paths)):
-                prefix=str(i)
-                for key in self.info_logKeys:
-                    logger.record_tabular(prefix + 'last_'+key, np.mean([path['env_infos'][key][-1] for path in paths[i]]) )
+        # from rlkit.core import logger
+        # if type(paths[0]) == dict:
+        #     if type(paths[0]) == dict:
+        #         #For SAC
+        #
+        #         #if isinstance(paths[0]['env_infos'][0] , OrderedDict):
+        #         # for key in self.info_logKeys:
+        #         #     nested_list = [[i[key] for i in paths[j]['env_infos']] for j in range(len(paths))]
+        #         #     logger.record_tabular(prefix + 'last_'+key, np.mean([_list[-1] for _list in nested_list]) )
+        #
+        #
+        #
+        #         #For TRPO
+        #         for key in self.info_logKeys:
+        #             logger.record_tabular(prefix + 'last_'+key, np.mean([path['env_infos'][key][-1] for path in paths]) )
+        #
+        # else:
+        #     for i in range(len(paths)):
+        #         prefix=str(i)
+        #         for key in self.info_logKeys:
+        #             logger.record_tabular(prefix + 'last_'+key, np.mean([path['env_infos'][key][-1] for path in paths[i]]) )
 
