@@ -36,6 +36,7 @@ class SawyerPushEnv( SawyerXYZEnv):
             mpl = 150,
             hide_goal = True,
             hand_type = 'parallel_v1',
+            n_tasks=2,
             **kwargs
     ):
         self.quick_init(locals()) 
@@ -65,7 +66,8 @@ class SawyerPushEnv( SawyerXYZEnv):
         self.image = image
 
         self.image_dim = image_dim
-        self.tasks = np.array(tasks)
+        self.task_temp = np.array(tasks)
+        self.tasks = self.sample_tasks(n_tasks)
         self.num_tasks = len(tasks)
         self.rewMode = rewMode
         self.Ind = indicatorDist
@@ -228,12 +230,17 @@ class SawyerPushEnv( SawyerXYZEnv):
 
     def sample_tasks(self, num_tasks):
 
-        indices = np.random.choice(np.arange(self.num_tasks), num_tasks , replace = False)
-        return self.tasks[indices]
+        # indices = np.random.choice(np.arange(self.num_tasks), num_tasks , replace = False)
+        # return self.tasks[indices]
+        indices = np.array([0, 4, 7, 3, 5, 16, 8, 10, 15, 18][:num_tasks])
+        return self.task_temp[indices]
+
+    def get_all_task_idx(self):
+        return range(len(self.tasks))
 
 
-    def reset_task(self, task):
-        self.change_task(task)
+    def reset_task(self, idx):
+        self.change_task(self.tasks[idx])
 
 
     def change_task(self, task):
