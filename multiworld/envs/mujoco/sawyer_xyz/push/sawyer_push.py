@@ -232,7 +232,7 @@ class SawyerPushEnv( SawyerXYZEnv):
 
         # indices = np.random.choice(np.arange(self.num_tasks), num_tasks , replace = False)
         # return self.tasks[indices]
-        indices = np.array([0, 4, 7, 3, 5, 16, 8, 10, 15, 18][:num_tasks])
+        indices = np.array([0, 4, 7, 3, 5, 16, 8, 10, 15, 18, 1, 2, 9][:num_tasks])
         return self.task_temp[indices]
 
     def get_all_task_idx(self):
