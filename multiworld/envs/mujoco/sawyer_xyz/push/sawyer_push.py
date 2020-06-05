@@ -36,7 +36,7 @@ class SawyerPushEnv( SawyerXYZEnv):
             mpl = 150,
             hide_goal = True,
             hand_type = 'parallel_v1',
-            n_tasks=2,
+            n_tasks=15,
             **kwargs
     ):
         self.quick_init(locals()) 
